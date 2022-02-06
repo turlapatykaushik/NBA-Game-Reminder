@@ -1,0 +1,41 @@
+<!doctype html>
+<head>
+<title>Select Teams</title>
+<style>
+.container { 
+  height: 400px;
+  position: relative;
+  border: 3px solid green; 
+}
+
+.center {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+</head>
+
+<body>
+<form class="form-inline" method="POST" action="{{ url_for('success') }}">
+  <div class="container">
+    <div class="center">
+    <h2>Please Select Your Team </h2>
+            <select name="teamSelected" class="selectpicker form-control">
+              {% for team in listOfTeams %}
+              <option value="{{ team }}">{{ team }}</option>
+              {% endfor %}
+            </select>          
+    <h2>Please Enter Your Email Address </h2>
+            <input type="text" id="email" name="emailEntered">
+            <div>     
+            <br> 
+            <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+    </div>
+  </div>
+</form>
+</body>
